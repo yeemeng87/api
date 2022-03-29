@@ -12,6 +12,6 @@ app = Flask(__name__)
 
 attractions = {'Names': ['Marina Bay Sands', 'Gardens by the Bay', 'Botanic Gardens']}
 
-@app.route("/attractions", methods=["GET"])
+@app.route("/attractions", methods=["GET", "POST"])
 def get_attractions():
     return jsonify(attractions)
