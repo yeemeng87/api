@@ -1,1 +1,1 @@
-web: gunicorn 1st_API:app
+web: gunicorn Dog_Recommender:app
