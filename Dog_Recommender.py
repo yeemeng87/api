@@ -20,11 +20,21 @@ def provide_recommenation():
     if request.method == 'POST':
         try:
             # get the parameters
-            param_1 = request.values['Housing'].casefold()
-            param_2 = request.values['Kids'].casefold()
-            param_3 = request.values['Noise_tolerance'].casefold()
-            param_4 = request.values['Shedding_tolerance'].casefold()
-            param_5 = request.values['Activity_level'].casefold()
+            content_type = request.headers.get('Content-Type')
+            if content_type == 'application/json':
+                json = request.json
+                
+                param_1 = json.Housing.casefold()
+                param_2 = json.Kids.casefold()
+                param_3 = json.Noise_tolerance.casefold()
+                param_4 = json.Shedding_tolerance.casefold()
+                param_5 = json.Activity_level.casefold()
+            else:
+                param_1 = request.values['Housing'].casefold()
+                param_2 = request.values['Kids'].casefold()
+                param_3 = request.values['Noise_tolerance'].casefold()
+                param_4 = request.values['Shedding_tolerance'].casefold()
+                param_5 = request.values['Activity_level'].casefold()
         except:
             return jsonify({'error': 'some error happen during get parameters'})
         
@@ -100,6 +110,4 @@ def provide_recommenation():
         # return
         return jsonify({'Breed': dogs})
     else:
-        test = 'HDB'
-        test.casefold()
-        return jsonify({'Text': test})
+        return jsonify({'Text': 'Get request working'})
