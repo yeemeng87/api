@@ -5,6 +5,7 @@ Created on Wed Mar 30 10:55:57 2022
 @author: Yee Meng
 """
 
+import sys
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
@@ -26,7 +27,7 @@ def provide_recommenation():
             param_4 = request.form['Shedding_tolerance'].casefold()
             param_5 = request.form['Activity_level'].casefold()
         except:
-            return jsonify({'error': 'something went wrong here'})
+            return jsonify({'error': sys.exc_info()[0]})
         
         to_remove = {'dummy'}
         # question 1: What is your home like?
