@@ -19,11 +19,11 @@ def provide_recommenation():
     
     if request.method == 'POST':
         # get the parameters
-        param_1 = request.form['Housing'].casfold()
-        param_2 = request.form['Kids'].casfold()
-        param_3 = request.form['Noise_tolerance'].casfold()
-        param_4 = request.form['Shedding_tolerance'].casfold()
-        param_5 = request.form['Activity_level'].casfold()
+        param_1 = request.form['Housing'].casefold()
+        param_2 = request.form['Kids'].casefold()
+        param_3 = request.form['Noise_tolerance'].casefold()
+        param_4 = request.form['Shedding_tolerance'].casefold()
+        param_5 = request.form['Activity_level'].casefold()
         
         to_remove = {'dummy'}
         # question 1: What is your home like?
@@ -97,4 +97,6 @@ def provide_recommenation():
         # return
         return jsonify({'Breed': dogs})
     else:
-        return jsonify({'Text': 'Get request working'})
+        test = 'HDB'
+        test.casefold()
+        return jsonify({'Text': test})
