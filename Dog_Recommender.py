@@ -27,7 +27,7 @@ def provide_recommenation():
             param_4 = request.form['Shedding_tolerance']
             param_5 = request.form['Activity_level']
         except:
-            return jsonify({'error': 'some error happen here'})
+            return jsonify({'error': sys.exc_info()[1]})
         
         to_remove = {'dummy'}
         # question 1: What is your home like?
