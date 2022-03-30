@@ -5,7 +5,6 @@ Created on Wed Mar 30 10:55:57 2022
 @author: Yee Meng
 """
 
-import sys
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
@@ -21,13 +20,13 @@ def provide_recommenation():
     if request.method == 'POST':
         try:
             # get the parameters
-            param_1 = request.form['Housing']
-            param_2 = request.form['Kids']
-            param_3 = request.form['Noise_tolerance']
-            param_4 = request.form['Shedding_tolerance']
-            param_5 = request.form['Activity_level']
+            param_1 = request.values['Housing'].casefold()
+            param_2 = request.values['Kids'].casefold()
+            param_3 = request.values['Noise_tolerance'].casefold()
+            param_4 = request.values['Shedding_tolerance'].casefold()
+            param_5 = request.values['Activity_level'].casefold()
         except:
-            return jsonify({'error': sys.exc_info()[1]})
+            return jsonify({'error': 'some error happen during get parameters'})
         
         to_remove = {'dummy'}
         # question 1: What is your home like?
