@@ -24,11 +24,7 @@ def provide_recommenation():
             if content_type == 'application/json':
                 json = request.json
                 
-                param_1 = json.Housing.casefold()
-                param_2 = json.Kids.casefold()
-                param_3 = json.Noise_tolerance.casefold()
-                param_4 = json.Shedding_tolerance.casefold()
-                param_5 = json.Activity_level.casefold()
+                return json
             else:
                 param_1 = request.values['Housing'].casefold()
                 param_2 = request.values['Kids'].casefold()
