@@ -18,12 +18,15 @@ def provide_recommenation():
     'Pomeranian', 'Maltese', 'German Shepherd Dog', 'Cardigan Welsh Corgi', 'Chihuahua']
     
     if request.method == 'POST':
-        # get the parameters
-        param_1 = request.form['Housing'].casefold()
-        param_2 = request.form['Kids'].casefold()
-        param_3 = request.form['Noise_tolerance'].casefold()
-        param_4 = request.form['Shedding_tolerance'].casefold()
-        param_5 = request.form['Activity_level'].casefold()
+        try:
+            # get the parameters
+            param_1 = request.form['Housing'].casefold()
+            param_2 = request.form['Kids'].casefold()
+            param_3 = request.form['Noise_tolerance'].casefold()
+            param_4 = request.form['Shedding_tolerance'].casefold()
+            param_5 = request.form['Activity_level'].casefold()
+        except:
+            return jsonify({'error': 'something went wrong here'})
         
         to_remove = {'dummy'}
         # question 1: What is your home like?
