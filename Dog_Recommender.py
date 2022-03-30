@@ -21,13 +21,13 @@ def provide_recommenation():
     if request.method == 'POST':
         try:
             # get the parameters
-            param_1 = request.form['Housing'].casefold()
-            param_2 = request.form['Kids'].casefold()
-            param_3 = request.form['Noise_tolerance'].casefold()
-            param_4 = request.form['Shedding_tolerance'].casefold()
-            param_5 = request.form['Activity_level'].casefold()
+            param_1 = request.form['Housing']
+            param_2 = request.form['Kids']
+            param_3 = request.form['Noise_tolerance']
+            param_4 = request.form['Shedding_tolerance']
+            param_5 = request.form['Activity_level']
         except:
-            return jsonify({'error': sys.exc_info()[0]})
+            return jsonify({'error': 'some error happen here'})
         
         to_remove = {'dummy'}
         # question 1: What is your home like?
